@@ -12,7 +12,9 @@ let animationid ;
 let life = 3;
 let score =0;
 const start_div = document.getElementById('startdiv');
-
+const corEl = document.getElementById('corEl');
+const imeg =document.getElementsByClassName("imeg")
+const count = 0
 
 //build atargil obj 
 function targilto(){
@@ -42,7 +44,8 @@ function listen (){
 			targil=targilto();
 			y=20;
 			score +=10
-			this.getElementById("score").innerHTML=score
+			count +=1
+			this.getElementById("score").innerHTML="score:"+score
 		}
 		else{
 			document.getElementById("answer").value = '';
@@ -51,7 +54,7 @@ function listen (){
 		
 }})
 }
-
+//functio check the ans presing the buutton
 function button_check(){
 		if (document.getElementById("answer").value == targil.sum){
 			document.getElementById("answer").value = '';
@@ -65,6 +68,7 @@ function button_check(){
 		}
 }
 
+//canvas anmation
 function move(){
 	c.clearRect(0,0,300,500)
     c.font="30px Comic Sans MS";
@@ -80,11 +84,13 @@ function move(){
 		c.fillText(targil.x+"+"+targil.y+"="+targil.sum , canvas.width/2, y);
 		cancelAnimationFrame(animationid);
 		life-=1
+		harte()
 		console.log("life=" + life)
+		//if dead stop animation and show score 
 		if (life==0){
-			cancelAnimationFrame(animationid);
 			console.log("you dead")
-			start_div.style.display ='flex'
+			stop();
+			
 		}
 		else{
 			init()
@@ -95,27 +101,45 @@ function move(){
 	
 }
 
+
+
+function harte(){
+		console.log(imeg[life]);
+		imeg[life].src= "img/hartblack.png";
+
+
+}
+
+
+
+
+
+//stop button stop anmation 
 function stop(){
 	cancelAnimationFrame(animationid);
-	start_div.style.display ='inline'
+	start_div.style.display ='inline';
+	corEl.innerHTML="your score:"+score;
+
 }
 
 
 function init(){
 	y =20
-	fast =2
+	fast =1
 	targil =targilto()
 	move();
 
 }
+//start the game reseting scor and life
 function start_game(){
 	y =20
-	fast =0.5
+	fast =1
 	targil =targilto()
 	life = 3
 	score =0
 	start_div.style.display ='none'
+	for (i = 0; i < imeg.length; i++){
+		imeg[i].src= "img/hartred.png"
+	}
 	move()
 }
-
-init()

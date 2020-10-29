@@ -15,17 +15,17 @@
         }
         .container{
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr ;
+            grid-template-columns: 1fr 1fr 1fr ;
         }
         .stargame { 
                 position: absolute;
                 background-color: black;
                 border: 2px solid #ccc;
                 border-radius: 20px;
-                width: 30%;
-                height: 30%;
-                top: 50%;
-                left: 50%;
+                width: 20%;
+                height: 20 %;
+                top: 30%;
+                left: 10%;
                   }
                 .btr{
                     background-color:  #038ab8;
@@ -36,12 +36,18 @@
                 .btr:hover{
                     background-color:  #016a8d;
                 }
+                .imeg{
+                    width: 15%;
+                    height: 6%;
+                    top: 10%;
+                    left: 10%;
+                }
     </style>
 
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
     <div id="startdiv" class="stargame" >
-        <H2 class="d-flex justify-content-center" >your score is:</H2>
+        <H2 id="corEl" class="d-flex justify-content-center" >your score is:</H2>
         <di class="d-flex justify-content-center"v>
         <button id="stat" class="btr" onclick="start_game()">start game</button>
     </div>
@@ -51,6 +57,11 @@
             <h2 id ="score">score:0</h2>
            <div class="col"></div>
             <canvas></canvas>
+           </div>
+           <div class="col">
+                <img class ="imeg"src="img/hartred.png">
+                <img class ="imeg"src="img/hartred.png">
+                <img class ="imeg"src="img/hartred.png">
            </div>
            <div id="shit" class="col">
             <div class="container"></div>
