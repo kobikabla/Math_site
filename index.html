@@ -42,6 +42,13 @@
                     top: 10%;
                     left: 10%;
                 }
+                .heart{
+                    position: absolute;
+                    width: 350px;
+                    height: 550px;
+                    top: flex;
+                    left: 25%;
+                }
     </style>
 
 </head>
@@ -58,7 +65,7 @@
            <div class="col"></div>
             <canvas></canvas>
            </div>
-           <div class="col">
+           <div class="heart">
                 <img class ="imeg"src="img/hartred.png">
                 <img class ="imeg"src="img/hartred.png">
                 <img class ="imeg"src="img/hartred.png">
@@ -68,7 +75,6 @@
             <div class="row"><h1></h1></div>
             <input id="answer" type="text" name="text">  
             <button type="button" class="btn btn-primary" onclick=" button_check()">submit answer</button>
-            <button type="button" class="btn btn-primary" onclick="init()">start</button>
             <button type="button" class="btn btn-danger" onclick="stop()">stop</button>
     
         </div>  

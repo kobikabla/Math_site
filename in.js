@@ -14,7 +14,7 @@ let score =0;
 const start_div = document.getElementById('startdiv');
 const corEl = document.getElementById('corEl');
 const imeg =document.getElementsByClassName("imeg")
-const count = 0
+let count = 0
 
 //build atargil obj 
 function targilto(){
