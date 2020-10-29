@@ -14,7 +14,12 @@ let score =0;
 const start_div = document.getElementById('startdiv');
 const corEl = document.getElementById('corEl');
 const imeg =document.getElementsByClassName("imeg")
-let count = 0
+const num =document.getElementById("num")
+let count = 0 //count right answers
+let targilim_num = 2 // right Answers before level up
+const level_tag =document.getElementById("level")
+let level = 0
+
 
 //build atargil obj 
 function targilto(){
@@ -46,6 +51,14 @@ function listen (){
 			score +=10
 			count +=1
 			this.getElementById("score").innerHTML="score:"+score
+			num.innerHTML =(targilim_num-count) + "  more right answers to level up"
+			if (count == targilim_num){
+				level+=1
+				level_tag.innerHTML ="level"+" "+level
+				count =0
+				fast +=1
+				console.log("level" +level)
+			}
 		}
 		else{
 			document.getElementById("answer").value = '';
@@ -54,6 +67,9 @@ function listen (){
 		
 }})
 }
+
+
+
 //functio check the ans presing the buutton
 function button_check(){
 		if (document.getElementById("answer").value == targil.sum){
@@ -72,7 +88,7 @@ function button_check(){
 function move(){
 	c.clearRect(0,0,300,500)
     c.font="30px Comic Sans MS";
-    c.fillStyle = "red";
+    c.fillStyle = "black";
     c.textAlign = "center";
 	c.fillText(targil.x+"+"+targil.y , canvas.width/2, y);
 	y+=fast
@@ -96,22 +112,18 @@ function move(){
 			init()
 		}}
 		listen()
-
+	
 	
 	
 }
 
 
-
+//chenge hears color
 function harte(){
 		console.log(imeg[life]);
 		imeg[life].src= "img/hartblack.png";
 
-
 }
-
-
-
 
 
 //stop button stop anmation 
@@ -119,13 +131,11 @@ function stop(){
 	cancelAnimationFrame(animationid);
 	start_div.style.display ='inline';
 	corEl.innerHTML="your score:"+score;
-
 }
 
 
 function init(){
 	y =20
-	fast =1
 	targil =targilto()
 	move();
 
